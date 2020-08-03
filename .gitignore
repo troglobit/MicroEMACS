@@ -1,0 +1,4 @@
+*~
+*.o
+.gdb_history
+emacs
