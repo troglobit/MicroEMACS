@@ -531,10 +531,10 @@ adjustmode(kind, global)	/* change the editor mode status */
 int kind;	/* true = set,		false = delete */
 int global;	/* true = global flag,	false = current buffer flag */
 {
-	register char prompt[50];	/* string to prompt user with */
-	register char *scan;		/* scanning pointer to convert prompt */
-	register int i;			/* loop index */
-	char cbuf[NPAT];		/* buffer to recieve mode name into */
+	char prompt[50];	/* string to prompt user with */
+	char *scan;		/* scanning pointer to convert prompt */
+	int i;			/* loop index */
+	char cbuf[NPAT];	/* buffer to recieve mode name into */
 
 	/* build the proper prompt string */
 	if (global)
