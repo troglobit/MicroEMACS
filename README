@@ -1,0 +1,454 @@
+	MicroEMACS 3.6	new goodies
+
+- CMODE additions
+
+	in CMODE, pressing a '#' when there is only preceding whitespace
+on a line causes the whitespace to be deleted.  (for preprocesser
+commands to be brought up against the left margin. 
+
+- Next Buffer command
+
+	The Next Buffer command (^X-X) switches the current window to
+the next buffer in the buffer list (reading it in if needed).  This is
+good for editing lists of files (mainly on UNIX when the shell expands
+wild cards). 
+
+- Fill paragraph modified
+
+	The fill paragraph command (<ESC> Q) now puts two spaces after
+every period at the end of a word.  This is useful most of the time but
+occasionally will put in spurious spaces (like after a middle initial). 
+Any suggestions on an algorithm for dealing with english would be
+appreciated. 
+
+- Kill paragraph command added
+
+	<ESC> ^W is now bound to kill-paragraph.  This kills the current
+paragraph which the cursor is in.  A numeric argument will allow it to
+kill a number of paragraphs. 
+
+- Global mode commands
+
+	Set/delete global mode commands now allow the user to specify a
+default mode for newly created buffers.  Thus, for example, if you
+always wished to use EXACT case matching on a string, you could place a
+"Set global mode exact" in your startup file and all buffers would start
+with EXACT initially on. 
+
+- Overwrite mode
+
+	OVER mode allows you to type text over the top of other text
+without inserting it.  This mode is very good for editing tables of
+information. 
+
+- Insert Space command added
+
+	The Insert Space command (^C or INSERT) inserts a space in front
+of the cursor push any text to the right one character farther to the
+right.  This is a very usefull command while in OVERwrite mode. (I moved
+the bind-to-key function to now initially be bound to <ESC>-K)
+
+- Hunt Forward/Backward
+
+	The hunt commands allow you to search for the last string
+searched for without re-entering the string. Under PCDOS they are bound
+to <ALT>-S and <ALT-R> (the new function prefix proved even more
+verstile than I had thought when I wrote it. Do note the unusual
+declarations for them in EBIND.H) Under other environments they are not
+yet bound, and are probably best bound to a function key.
+
+- Amiga Function/Cursor keys:
+
+	are now supported. Function keys 1-10 are FN 0 - FN 9, shifted
+function keys are FN P - FN Y, cursor keys are FN A - FN D, shifted
+cursor keys are FN S, FN T, FN a, and FN @. (Use the describe-key
+function to find specific keys).
+
+- Reverse video Status lines
+
+	The status line for each buffer can now (due to popular demand)
+be in reverse video. This is configuable in ESTRUCT.H for people who
+might not want it.
+
+- Several Bug fixes:
+
+	A bug in DOBUF would cause non-terminated strings under some
+compilers has been fixed.
+
+	Tabs when expanded on the AMIGA at display time sometimes caused
+MicroEMACS to hang, this is fixed. (Reported by Dawn Banks)
+
+	The current column position was not always maintained properly
+when executing a keyboard macro, this is fixed. (Reported by Ernst Christen).
+
+	Re-wrote word wrapping algorithm to be have better when
+inserting text into the middle of a paragraph.
+
+	<NL>'s at the end of a search to replace string cause the
+replacement to terminate after they have done the first replacement on
+the last line of the file, preventing MicroEMACS to hang while infinitly
+replacing <NL>s.
+
+
+- Future enhancments may include:
+
+	-s on command line for alternative startup file
+	numbered kill buffers
+	fence matching for CMODE
+	sort region command
+	sentence movement and deletion commands
+
+	If you make modifications to let MicroEMACS 3.6 run under any
+new envirnments, please send me the changes. I am also looking for the
+include file "rainbow.h".
+
+	Could some please test this out under the Mark Williams C
+compiler (which I do not have) and send me any needed changes to have it
+run properly [most probably in termio.c].
+
+	Send any ideas, suggestions or futher goodies to
+			Daniel Lawrence
+			ihnp4!pur-ee!pur-phy!duncan!lawrence
+
+=============================================================================
+	MicroEMACS 3.5
+
+	This version of MicroEMACS is based on the version written by
+Dave G. Conroy, and latter modified by Steve Wilhite and George Jones.
+My thanks goes to them for writting such nice, well structured and
+documented code. It is nice to see that there are some people out there
+who know how to program well.
+
+	I intend to continue to maintain this version and will consider
+adding features and supported machines on request. Current hardware
+supported includes:
+
+	IBM-PC under PCDOS/MSDOS and many compatibles
+	Dec Rainbow
+	Commodore Amiga
+	Unix V7
+	Unix and Multix BSD 4.2
+	Hewlett Packard 150 and various upgrades
+
+Features added to MicroEMACS since version 2.0 include:
+
+- Meta repeat codes
+
+	Striking the <ESC> key followed by a numeric argument (possibly
+with a leading minus sign) passes an argument down to a command which is
+usually used as a repeat count. This is similar to the ^U command, but
+there is no default value.
+
+- Change in repositioning command
+
+	The command to reposition the cursor now repositions it, by
+default, to the center of the current window, rather than the first line
+of the window. This I think is much more usefull and also consistant
+with many other emacs'.
+
+- File writting message....
+
+	For those of us with big files, when you start a write of a file
+to disk, the message [Writing..] now appears. This is so we know the
+machine is really still there. (Paranoids Ahead!)
+
+- Search strings now can have <NL>s in them
+
+	It is very usefull to be able to have newlines in search and
+replace strings. To do this, all text input to searching commands is now
+terminated by an <ESC>.
+
+- Replace!!!!!
+
+	Yes, now we can replace as well as search. There are two flavors
+of this command. <ESC> R allows us to replace each occurence of a string
+with another string from the current point to the end of the file. 
+<ESC> ^R also queries us at each string to see if we want to replace it.
+Typing a question mark here will display the options.
+
+- Yes/no responces
+
+	no longer require (or want) a return typed after them.
+
+- Spawning
+
+	Fixed up some MSDOS spawning messages. WARNING: If you have your
+switchchar set to a '-' instead of a '/' Lattice C may have problems
+when yanking up a new command processer. It will use a line like 
+COMMAND /C <command line>. You may have to rewrite this library function
+to get it to work on your system properly.
+
+- Suspend MicroEMACS
+
+	Under Unix BSD 4.2 we now have code to put the editor into the
+background and return to the parent shell. This is initially bound to
+the ^X D keys.
+
+- Function keys
+
+	Under MSDOS on IBM-PCs and compatibles, the function keys and
+cursor arrows now do what one would expect them to. There is a new
+prefix in the editor to accodate this. (Look in MAIN.C for this) This
+can be used to add function key support to most any machine by adding a
+small piece of code to reconize the keys in the getkey() routine in
+main.c, and adding the new definitions to the ebind.h header file.
+
+- Abort (^G)
+
+	now prints out [Aborted] on the command line so you know what
+happened.
+
+- Editor Modes
+
+	Buffers now have modes associated with them. These modes can be
+set with the set-mode (^X M) and the delete-mode (^X ^M) commands.
+
+- CMODE mode
+
+	When a file is read in with a .c or .h extention, CMODE is set
+for that buffer. (This can also be manually set/deleted[see above]) In
+CMODE, MicroEMACS attemts to be intelligent about doing automatic
+indentation for you. It will indent any line the same as the privious
+line unless the last line ended with a brace ({). Then it will indent an
+extra tab stop (which varies depending on how tabs are set). Any lines
+begining with a close brace (}) will by undented one tab stop if possible.
+
+- WRAP mode
+
+	This mode automatically wraps words onto the next line when the
+word extends beyond the current fill column.
+
+- VIEW mode
+
+	This mode disables all commands that can change the current buffer.
+
+- EXACT mode
+
+	Normally all searches are done ignoring case. With this mode
+set, only strings which exactly match the search string, including case,
+are matched.
+
+- GOTO line command
+
+	The goto-line (<ESC> G) command will go to a specific line
+number of the file. For example to go to the 76th line of a file, type:
+
+	<ESC> 76 <ESC> G
+
+- Rename buffer
+
+	The command rename-buffer (<ESC> ^N) allows you to change the
+name of the current buffer.
+
+- Paragraph movement
+
+	The forward-paragraph (<ESC> N) and previous-paragraph (<ESC> P)
+commands allow movement from one paragraph to another.
+
+- nasty algorith fixed....
+
+	A rather nasty algorithm in the kill buffer processing got
+rewritten which ends up reducing the speed neeeded to wipe large areas
+immensly. This may have appeared to lock up the machine on the older
+versions when a large wipe was attempted.
+
+- Header files rearranged
+
+	ESTRUCT.H	Structure and option declarations
+	EDEF.H		Global and external variable declarations
+	EPATH.H		Help and startup file paths
+	EFUNC.H		Name binding table
+	EBIND.H		Initial key binding tables
+
+- Paragraph filling!!
+
+	The fill-paragraph (<ESC> Q) command reformats the current
+paragraph filling to the fill column as possible. Very handy....
+
+- Long lines
+
+	Lines longer than the screen now scroll right-left as you move
+through them. Seeing what your editing is a big improvement.
+
+- word move and deletes
+
+	Due to massive demand by my users here, I have changed the way
+word move and delete work so that they are more consistant and usefull.
+But this change is configurable by changing the value of the NFWORD
+constant in ESTRUCT.H
+
+- View flag on command line
+
+	-v on the command line causes the editor to read a file in with
+VIEW mode set on. -e (edit) is the opposite causing it to read in for
+editing (which is also the default).
+
+- Quick EXIT has done a quick change....
+
+	(sorry....) Quick-exit now writes out all changed buffers before
+exiting.
+
+- Very long file lines
+
+	Very long lines (>255 chars) being read from a file now get
+wrapped on multiple lines (instead of simple refusing to read any more
+of the file as before) The user is warned about them with a message at
+the end of the read.
+
+- Space not clearing messages
+
+	Many of my users complained about the space not inserting itself
+after a message (it just cleared the message line). This is now
+configuable in ESTRUCT.H
+
+- HELP commands!
+
+	the describe-key (^X ?) command allows the user to type in one
+command and the editor echos back the command name bound to that key.
+The help (<ESC> ?) command grabs the top window (or splits if if not
+there) and reads in the EMACS.HLP file. The list of places to look for
+the help file are in EPATH.H
+
+- View file command
+
+	View-file (^X ^V) is the same as find-file (old visit-file)
+except it leaves the found file in VIEW mode.
+
+- Improved updating
+
+	On the systems that code has been written for, the screen update
+routines will defer updating if there is type ahead present. This makes
+all movement commands much more pleasant. The code for this is in the
+function typahead() in TERMIO.C. This is currently implimented for
+MSDOS, BSD4.2 and possible the AMIGA (Some one please check this out. I
+only have limited access to an AMIGA)
+
+- Buffer lists
+
+	are now alphabetically maintained.
+
+- Insert file
+
+	Insert-file (^X ^I) allows you to insert the contents of a file
+at the current position of the current buffer. very useful
+
+- Scroll next window
+
+	Scroll-next-down (<ESC> ^V) and scroll-next-up (<ESC> ^Z) allow
+you to scroll the next window up and down by pages.
+
+- Arguments to searches
+
+	All searches and replaces now take a preceding numeric argument
+to say how many times, rather than all the way to the bottom of the
+file.
+
+- Binding keys
+
+	The bind-to-key (^C) function allows you to change what
+command a key invokes. It will promt you for a command name, and then a
+keystroke sequence. This is happy. Unbind-key (<ESC> ^C) allows you to
+make a key now longer have a function. (This is good when you accidently
+bind <RET> or a letter to something)
+
+- Execute named command
+
+	Will prompt you for a command name, and then execute it. This
+allows you to execute commands that are not currently bound to any keys.
+
+- Command name completion
+
+	Any time you are prompted for a command, if you type in part of
+it and hit the space bar, the editor will try to finish it. If the bell
+righs, it means there is now command like what you are typing.
+
+- Describe bindings
+
+	Describe-bindings (not bound) will display a list of all the
+commands in a window (splitting if neccesary) and the keys bound with
+them. These will reflect the current bindings and not the default ones.
+This is a good way to find out the name of a command you can't remember,
+or which I picked a bad name for. (The names have been changed to
+protect the guilty (thats me) and are in EFUNC.H You too can change them
+if you are into it).
+
+- Executing stuff
+
+	The execute-command-line command prompts you for a command line
+on the bottom of the screen in the form:
+
+	{Numeric argument} <command-name> {<string arg> {<string arg>}}
+
+	(where {} are for optional stuff) and then executes it.
+
+	Execute-buffer executes a number of these commands in a buffer.
+If any errors are found, the buffers current location will be set to the
+begining of the line with the error in it.
+
+	Execute-file will read a file into a buffer, execute it, and
+then kill the buffer if it executed to completion with no errors.
+
+- Startup file
+
+	MicroEMACS will attempt to execute a startup file (whose name is
+in EPATH.H) on startup. The MSDOS name is EMACS.RC and under unix it is
+usually .emacsrc
+
+- Multiple files on the command line
+
+	MicroEMACS will now except a list of files on the command line.
+These files will all be assigned buffers, but will not be read in until
+the buffer is brought up in a window. -v and -e switches affect all the
+files following them.
+
+- FILE LOCKING
+
+	This is for people on multi-user UNIX systems. What this feature
+can do is prevent two people from editing the same file and stomping on
+each others edits. Unfortunatly, the actually locking mechanism used
+where I work is propritory so I could not send it out, but I have left
+all the code (conditionally defined by the FILOCK symbol in ESTRUCT.H)
+leading up to the actually locking routines so some one else can add it
+with little effort. Here are the comments for the actual routines that
+need to be added:
+
+/**********************
+ *
+ * dolock -- lock the file fname
+ *
+ * if successful, returns NULL 
+ * if file locked, returns username of person locking the file
+ * if other error, returns "LOCK ERROR: explanation"
+ *
+ *********************/
+
+char *dolock(fname)
+
+char *fname;	/* file name to be locked */
+
+
+and
+
+
+/**********************
+ *
+ * undolock -- unlock the file fname
+ *
+ * if successful, returns NULL 
+ * if other error, returns "LOCK ERROR: explanation"
+ *
+ *********************/
+
+char *undolock(fname)
+
+char *fname;		/* file name to unlock */
+
+
+	If some one wants to write these functions so they can be
+distributed publicly, please mail a separate file with them to me
+and I will include them with these sources for others to use.
+
+- HP150 function/cursor key support
+
+	is now finished and working.
+

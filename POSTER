@@ -1,0 +1,40 @@
+Article 147 of mod.sources:
+Relay-Version: version B 2.10.3 4.3bsd-beta 6/6/85; site unisoft.UUCP
+Path: unisoft!lll-lcc!lll-crg!seismo!harvard!husc6!talcott!panda!sources-request
+From: sources-request@panda.UUCP
+Newsgroups: mod.sources
+Subject: MicroEMACS 3.6 (Intro)
+Message-ID: <1804@panda.UUCP>
+Date: 6 May 86 12:36:19 GMT
+Date-Received: 7 May 86 10:15:17 GMT
+Sender: jpn@panda.UUCP
+Lines: 25
+Approved: jpn@panda.UUCP
+
+Mod.sources:  Volume 4, Issue 97
+Submitted by: ihnp4!itivax!duncan!lawrence
+
+	Following up this will be eight notes which are shar'ed parts of
+MicroEMACS 3.6. I have been working on this version since I downloaded
+Dave Conroy's version which had been ported to the Amiga last November.
+As the accompanying documentation stated, this version works and has
+been tested on UNIX V7, BSD 4.2, Amiga, MS-DOS, and VMS. I will be
+supporting this version and looking to expand it in the near future for
+other machines.
+
+					Daniel Lawrence
+			ihnp4!itivax!duncan!lawrence
+	or		ihnp4!pur-ee!pur-phy!duncan!lawrence
+
+
+[ The previous version of MicroEMACS that was posted to mod.sources was
+  MicroEMACS version 20 from Dave Conroy.  Both that version and this
+  version of MicroEMACS are based on the original work by Dave Conroy,
+  but these two programmers went in different directions.  I hope one day
+  that these two development branches merge, but that may be as likely
+  as BSD and USG UNIXes merging!  Perhaps the best we can hope for is
+  that the best features of each migrate into the other
+		 - John P. Nelson  moderator, mod.sources
+]
+
+

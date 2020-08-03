@@ -1,0 +1,17 @@
+;	EMACS.RC:	Startup file for MicroEMACS 3.4
+;
+;			This file is executed everytime the
+;			editor is entered
+
+;	***** Rebind the Function key group
+
+bind-to-key execute-named-command	FN;
+bind-to-key execute-file		FN<
+bind-to-key hunt-forward		FN=
+bind-to-key hunt-backward		FN>
+bind-to-key next-window			FN?
+bind-to-key execute-macro		FN@
+bind-to-key find-file			FNA
+bind-to-key view-file			FNB
+bind-to-key save-file			FNC
+bind-to-key exit-emacs			FND
