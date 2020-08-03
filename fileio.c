@@ -57,7 +57,9 @@ ffclose()
         }
         return(FIOSUC);
 #else
-        fclose(ffp);
+	if (ffp)
+		fclose(ffp);
+	ffp = NULL;
         return (FIOSUC);
 #endif
 }
