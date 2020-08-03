@@ -76,6 +76,13 @@ char tobuf[TBUFSIZ];		/* terminal output buffer */
 #endif
 #endif
 
+#if linux
+#include	<termios.h>
+#include	<unistd.h>
+struct	termios	 ostate;		 /* saved tty state */
+struct	termios	 nstate;		 /* values for editor mode */
+#endif
+
 /*
  * This function is called once to set up the terminal device streams.
  * On VMS, it translates TT until it finds the terminal, then assigns
@@ -153,6 +160,14 @@ ttopen()
 	signal(SIGCONT,rtfrmshell);	/* suspend & restart emacs */
 #endif
 #endif
+
+#if	linux
+	/* Adjust output channel */
+	tcgetattr(1, &ostate);			/* save old state */
+	tcgetattr(1, &nstate);			/* get base of new state */
+	cfmakeraw(&nstate);
+	tcsetattr(1, TCSADRAIN, &nstate);	/* set mode */
+#endif
 }
 
 /*
@@ -192,6 +207,10 @@ ttclose()
 #if     V7
         stty(0, &ostate);
 	ioctl(0, TIOCSETC, &otchars);	/* Place old character into K */
+#endif
+
+#if	linux
+	tcsetattr(1, TCSADRAIN, &ostate);	/* return to original mode */
 #endif
 }
 
@@ -237,7 +256,7 @@ ttputc(c)
         Put_Char(c);                    /* fast video */
 #endif
 
-#if     V7
+#if     V7 || linux
         fputc(c, stdout);
 #endif
 }
@@ -278,7 +297,7 @@ ttflush()
 #endif
 #if     MSDOS
 #endif
-#if     V7
+#if     V7 || linux
         fflush(stdout);
 #endif
 }
@@ -391,7 +410,7 @@ ttgetc()
 	return(c);
 #endif
 
-#if     V7
+#if     V7 || linux
         return(127 & fgetc(stdin));
 #endif
 }
