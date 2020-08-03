@@ -1,7 +1,7 @@
 CFLAGS=		-O -I/usr/tools/include/bland
 
 OFILES=		ansi.o basic.o bind.o buffer.o display.o file.o \
-		fileio.o hp150.o line.o lock.c main.o random.o region.o \
+		fileio.o hp150.o line.o lock.o main.o random.o region.o \
 		search.o spawn.o tcap.o termio.o vt52.o window.o word.o
 
 CFILES=		ansi.c basic.c bind.c buffer.c display.c  file.c \
