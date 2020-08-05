@@ -4,28 +4,28 @@
 
 	in CMODE, pressing a '#' when there is only preceding whitespace
 on a line causes the whitespace to be deleted.  (for preprocesser
-commands to be brought up against the left margin. 
+commands to be brought up against the left margin.
 
 - Next Buffer command
 
 	The Next Buffer command (^X-X) switches the current window to
 the next buffer in the buffer list (reading it in if needed).  This is
 good for editing lists of files (mainly on UNIX when the shell expands
-wild cards). 
+wild cards).
 
 - Fill paragraph modified
 
 	The fill paragraph command (<ESC> Q) now puts two spaces after
 every period at the end of a word.  This is useful most of the time but
-occasionally will put in spurious spaces (like after a middle initial). 
+occasionally will put in spurious spaces (like after a middle initial).
 Any suggestions on an algorithm for dealing with english would be
-appreciated. 
+appreciated.
 
 - Kill paragraph command added
 
 	<ESC> ^W is now bound to kill-paragraph.  This kills the current
 paragraph which the cursor is in.  A numeric argument will allow it to
-kill a number of paragraphs. 
+kill a number of paragraphs.
 
 - Global mode commands
 
@@ -33,13 +33,13 @@ kill a number of paragraphs.
 default mode for newly created buffers.  Thus, for example, if you
 always wished to use EXACT case matching on a string, you could place a
 "Set global mode exact" in your startup file and all buffers would start
-with EXACT initially on. 
+with EXACT initially on.
 
 - Overwrite mode
 
 	OVER mode allows you to type text over the top of other text
 without inserting it.  This mode is very good for editing tables of
-information. 
+information.
 
 - Insert Space command added
 
@@ -162,7 +162,7 @@ terminated by an <ESC>.
 
 	Yes, now we can replace as well as search. There are two flavors
 of this command. <ESC> R allows us to replace each occurence of a string
-with another string from the current point to the end of the file. 
+with another string from the current point to the end of the file.
 <ESC> ^R also queries us at each string to see if we want to replace it.
 Typing a question mark here will display the options.
 
@@ -174,7 +174,7 @@ Typing a question mark here will display the options.
 
 	Fixed up some MSDOS spawning messages. WARNING: If you have your
 switchchar set to a '-' instead of a '/' Lattice C may have problems
-when yanking up a new command processer. It will use a line like 
+when yanking up a new command processer. It will use a line like
 COMMAND /C <command line>. You may have to rewrite this library function
 to get it to work on your system properly.
 
@@ -416,7 +416,7 @@ need to be added:
  *
  * dolock -- lock the file fname
  *
- * if successful, returns NULL 
+ * if successful, returns NULL
  * if file locked, returns username of person locking the file
  * if other error, returns "LOCK ERROR: explanation"
  *
@@ -434,7 +434,7 @@ and
  *
  * undolock -- unlock the file fname
  *
- * if successful, returns NULL 
+ * if successful, returns NULL
  * if other error, returns "LOCK ERROR: explanation"
  *
  *********************/
@@ -451,4 +451,3 @@ and I will include them with these sources for others to use.
 - HP150 function/cursor key support
 
 	is now finished and working.
-
