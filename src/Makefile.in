@@ -89,7 +89,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = emacs$(EXEEXT)
+bin_PROGRAMS = me$(EXEEXT)
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -102,20 +102,17 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkgdatadir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_emacs_OBJECTS = emacs-ansi.$(OBJEXT) emacs-basic.$(OBJEXT) \
-	emacs-bind.$(OBJEXT) emacs-buffer.$(OBJEXT) \
-	emacs-display.$(OBJEXT) emacs-file.$(OBJEXT) \
-	emacs-fileio.$(OBJEXT) emacs-hp150.$(OBJEXT) \
-	emacs-line.$(OBJEXT) emacs-lock.$(OBJEXT) emacs-main.$(OBJEXT) \
-	emacs-random.$(OBJEXT) emacs-region.$(OBJEXT) \
-	emacs-search.$(OBJEXT) emacs-spawn.$(OBJEXT) \
-	emacs-tcap.$(OBJEXT) emacs-termio.$(OBJEXT) \
-	emacs-vt52.$(OBJEXT) emacs-window.$(OBJEXT) \
-	emacs-word.$(OBJEXT)
-emacs_OBJECTS = $(am_emacs_OBJECTS)
-emacs_LDADD = $(LDADD)
-emacs_LINK = $(CCLD) $(emacs_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
-	$(LDFLAGS) -o $@
+am_me_OBJECTS = me-ansi.$(OBJEXT) me-basic.$(OBJEXT) me-bind.$(OBJEXT) \
+	me-buffer.$(OBJEXT) me-display.$(OBJEXT) me-file.$(OBJEXT) \
+	me-fileio.$(OBJEXT) me-hp150.$(OBJEXT) me-line.$(OBJEXT) \
+	me-lock.$(OBJEXT) me-main.$(OBJEXT) me-random.$(OBJEXT) \
+	me-region.$(OBJEXT) me-search.$(OBJEXT) me-spawn.$(OBJEXT) \
+	me-tcap.$(OBJEXT) me-termio.$(OBJEXT) me-vt52.$(OBJEXT) \
+	me-window.$(OBJEXT) me-word.$(OBJEXT)
+me_OBJECTS = $(am_me_OBJECTS)
+me_LDADD = $(LDADD)
+me_LINK = $(CCLD) $(me_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o \
+	$@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -131,17 +128,16 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/aux/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = ./$(DEPDIR)/emacs-ansi.Po \
-	./$(DEPDIR)/emacs-basic.Po ./$(DEPDIR)/emacs-bind.Po \
-	./$(DEPDIR)/emacs-buffer.Po ./$(DEPDIR)/emacs-display.Po \
-	./$(DEPDIR)/emacs-file.Po ./$(DEPDIR)/emacs-fileio.Po \
-	./$(DEPDIR)/emacs-hp150.Po ./$(DEPDIR)/emacs-line.Po \
-	./$(DEPDIR)/emacs-lock.Po ./$(DEPDIR)/emacs-main.Po \
-	./$(DEPDIR)/emacs-random.Po ./$(DEPDIR)/emacs-region.Po \
-	./$(DEPDIR)/emacs-search.Po ./$(DEPDIR)/emacs-spawn.Po \
-	./$(DEPDIR)/emacs-tcap.Po ./$(DEPDIR)/emacs-termio.Po \
-	./$(DEPDIR)/emacs-vt52.Po ./$(DEPDIR)/emacs-window.Po \
-	./$(DEPDIR)/emacs-word.Po
+am__depfiles_remade = ./$(DEPDIR)/me-ansi.Po ./$(DEPDIR)/me-basic.Po \
+	./$(DEPDIR)/me-bind.Po ./$(DEPDIR)/me-buffer.Po \
+	./$(DEPDIR)/me-display.Po ./$(DEPDIR)/me-file.Po \
+	./$(DEPDIR)/me-fileio.Po ./$(DEPDIR)/me-hp150.Po \
+	./$(DEPDIR)/me-line.Po ./$(DEPDIR)/me-lock.Po \
+	./$(DEPDIR)/me-main.Po ./$(DEPDIR)/me-random.Po \
+	./$(DEPDIR)/me-region.Po ./$(DEPDIR)/me-search.Po \
+	./$(DEPDIR)/me-spawn.Po ./$(DEPDIR)/me-tcap.Po \
+	./$(DEPDIR)/me-termio.Po ./$(DEPDIR)/me-vt52.Po \
+	./$(DEPDIR)/me-window.Po ./$(DEPDIR)/me-word.Po
 am__mv = mv -f
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -159,8 +155,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(emacs_SOURCES)
-DIST_SOURCES = $(emacs_SOURCES)
+SOURCES = $(me_SOURCES)
+DIST_SOURCES = $(me_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -311,8 +307,8 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-emacs_CFLAGS = -Wno-implicit-function-declaration -Wno-implicit-int
-emacs_SOURCES = ansi.c basic.c bind.c buffer.c display.c file.c fileio.c \
+me_CFLAGS = -Wno-implicit-function-declaration -Wno-implicit-int
+me_SOURCES = ansi.c basic.c bind.c buffer.c display.c file.c fileio.c \
 		hp150.c line.c lock.c main.c random.c region.c search.c  \
 		spawn.c tcap.c termio.c vt52.c window.c word.c 		 \
 		estruct.h edef.h efunc.h epath.h
@@ -394,9 +390,9 @@ uninstall-binPROGRAMS:
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
 
-emacs$(EXEEXT): $(emacs_OBJECTS) $(emacs_DEPENDENCIES) $(EXTRA_emacs_DEPENDENCIES) 
-	@rm -f emacs$(EXEEXT)
-	$(AM_V_CCLD)$(emacs_LINK) $(emacs_OBJECTS) $(emacs_LDADD) $(LIBS)
+me$(EXEEXT): $(me_OBJECTS) $(me_DEPENDENCIES) $(EXTRA_me_DEPENDENCIES) 
+	@rm -f me$(EXEEXT)
+	$(AM_V_CCLD)$(me_LINK) $(me_OBJECTS) $(me_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -404,26 +400,26 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-ansi.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-basic.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-bind.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-buffer.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-display.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-file.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-fileio.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-hp150.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-line.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-lock.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-main.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-random.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-region.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-search.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-spawn.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-tcap.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-termio.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-vt52.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-window.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emacs-word.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-ansi.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-basic.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-bind.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-buffer.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-display.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-file.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-fileio.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-hp150.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-line.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-lock.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-main.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-random.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-region.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-search.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-spawn.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-tcap.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-termio.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-vt52.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-window.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/me-word.Po@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -445,285 +441,285 @@ am--depfiles: $(am__depfiles_remade)
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-emacs-ansi.o: ansi.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-ansi.o -MD -MP -MF $(DEPDIR)/emacs-ansi.Tpo -c -o emacs-ansi.o `test -f 'ansi.c' || echo '$(srcdir)/'`ansi.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-ansi.Tpo $(DEPDIR)/emacs-ansi.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ansi.c' object='emacs-ansi.o' libtool=no @AMDEPBACKSLASH@
+me-ansi.o: ansi.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-ansi.o -MD -MP -MF $(DEPDIR)/me-ansi.Tpo -c -o me-ansi.o `test -f 'ansi.c' || echo '$(srcdir)/'`ansi.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-ansi.Tpo $(DEPDIR)/me-ansi.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ansi.c' object='me-ansi.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-ansi.o `test -f 'ansi.c' || echo '$(srcdir)/'`ansi.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-ansi.o `test -f 'ansi.c' || echo '$(srcdir)/'`ansi.c
 
-emacs-ansi.obj: ansi.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-ansi.obj -MD -MP -MF $(DEPDIR)/emacs-ansi.Tpo -c -o emacs-ansi.obj `if test -f 'ansi.c'; then $(CYGPATH_W) 'ansi.c'; else $(CYGPATH_W) '$(srcdir)/ansi.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-ansi.Tpo $(DEPDIR)/emacs-ansi.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ansi.c' object='emacs-ansi.obj' libtool=no @AMDEPBACKSLASH@
+me-ansi.obj: ansi.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-ansi.obj -MD -MP -MF $(DEPDIR)/me-ansi.Tpo -c -o me-ansi.obj `if test -f 'ansi.c'; then $(CYGPATH_W) 'ansi.c'; else $(CYGPATH_W) '$(srcdir)/ansi.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-ansi.Tpo $(DEPDIR)/me-ansi.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ansi.c' object='me-ansi.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-ansi.obj `if test -f 'ansi.c'; then $(CYGPATH_W) 'ansi.c'; else $(CYGPATH_W) '$(srcdir)/ansi.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-ansi.obj `if test -f 'ansi.c'; then $(CYGPATH_W) 'ansi.c'; else $(CYGPATH_W) '$(srcdir)/ansi.c'; fi`
 
-emacs-basic.o: basic.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-basic.o -MD -MP -MF $(DEPDIR)/emacs-basic.Tpo -c -o emacs-basic.o `test -f 'basic.c' || echo '$(srcdir)/'`basic.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-basic.Tpo $(DEPDIR)/emacs-basic.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='basic.c' object='emacs-basic.o' libtool=no @AMDEPBACKSLASH@
+me-basic.o: basic.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-basic.o -MD -MP -MF $(DEPDIR)/me-basic.Tpo -c -o me-basic.o `test -f 'basic.c' || echo '$(srcdir)/'`basic.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-basic.Tpo $(DEPDIR)/me-basic.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='basic.c' object='me-basic.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-basic.o `test -f 'basic.c' || echo '$(srcdir)/'`basic.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-basic.o `test -f 'basic.c' || echo '$(srcdir)/'`basic.c
 
-emacs-basic.obj: basic.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-basic.obj -MD -MP -MF $(DEPDIR)/emacs-basic.Tpo -c -o emacs-basic.obj `if test -f 'basic.c'; then $(CYGPATH_W) 'basic.c'; else $(CYGPATH_W) '$(srcdir)/basic.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-basic.Tpo $(DEPDIR)/emacs-basic.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='basic.c' object='emacs-basic.obj' libtool=no @AMDEPBACKSLASH@
+me-basic.obj: basic.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-basic.obj -MD -MP -MF $(DEPDIR)/me-basic.Tpo -c -o me-basic.obj `if test -f 'basic.c'; then $(CYGPATH_W) 'basic.c'; else $(CYGPATH_W) '$(srcdir)/basic.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-basic.Tpo $(DEPDIR)/me-basic.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='basic.c' object='me-basic.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-basic.obj `if test -f 'basic.c'; then $(CYGPATH_W) 'basic.c'; else $(CYGPATH_W) '$(srcdir)/basic.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-basic.obj `if test -f 'basic.c'; then $(CYGPATH_W) 'basic.c'; else $(CYGPATH_W) '$(srcdir)/basic.c'; fi`
 
-emacs-bind.o: bind.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-bind.o -MD -MP -MF $(DEPDIR)/emacs-bind.Tpo -c -o emacs-bind.o `test -f 'bind.c' || echo '$(srcdir)/'`bind.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-bind.Tpo $(DEPDIR)/emacs-bind.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='bind.c' object='emacs-bind.o' libtool=no @AMDEPBACKSLASH@
+me-bind.o: bind.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-bind.o -MD -MP -MF $(DEPDIR)/me-bind.Tpo -c -o me-bind.o `test -f 'bind.c' || echo '$(srcdir)/'`bind.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-bind.Tpo $(DEPDIR)/me-bind.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='bind.c' object='me-bind.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-bind.o `test -f 'bind.c' || echo '$(srcdir)/'`bind.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-bind.o `test -f 'bind.c' || echo '$(srcdir)/'`bind.c
 
-emacs-bind.obj: bind.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-bind.obj -MD -MP -MF $(DEPDIR)/emacs-bind.Tpo -c -o emacs-bind.obj `if test -f 'bind.c'; then $(CYGPATH_W) 'bind.c'; else $(CYGPATH_W) '$(srcdir)/bind.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-bind.Tpo $(DEPDIR)/emacs-bind.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='bind.c' object='emacs-bind.obj' libtool=no @AMDEPBACKSLASH@
+me-bind.obj: bind.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-bind.obj -MD -MP -MF $(DEPDIR)/me-bind.Tpo -c -o me-bind.obj `if test -f 'bind.c'; then $(CYGPATH_W) 'bind.c'; else $(CYGPATH_W) '$(srcdir)/bind.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-bind.Tpo $(DEPDIR)/me-bind.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='bind.c' object='me-bind.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-bind.obj `if test -f 'bind.c'; then $(CYGPATH_W) 'bind.c'; else $(CYGPATH_W) '$(srcdir)/bind.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-bind.obj `if test -f 'bind.c'; then $(CYGPATH_W) 'bind.c'; else $(CYGPATH_W) '$(srcdir)/bind.c'; fi`
 
-emacs-buffer.o: buffer.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-buffer.o -MD -MP -MF $(DEPDIR)/emacs-buffer.Tpo -c -o emacs-buffer.o `test -f 'buffer.c' || echo '$(srcdir)/'`buffer.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-buffer.Tpo $(DEPDIR)/emacs-buffer.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='buffer.c' object='emacs-buffer.o' libtool=no @AMDEPBACKSLASH@
+me-buffer.o: buffer.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-buffer.o -MD -MP -MF $(DEPDIR)/me-buffer.Tpo -c -o me-buffer.o `test -f 'buffer.c' || echo '$(srcdir)/'`buffer.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-buffer.Tpo $(DEPDIR)/me-buffer.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='buffer.c' object='me-buffer.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-buffer.o `test -f 'buffer.c' || echo '$(srcdir)/'`buffer.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-buffer.o `test -f 'buffer.c' || echo '$(srcdir)/'`buffer.c
 
-emacs-buffer.obj: buffer.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-buffer.obj -MD -MP -MF $(DEPDIR)/emacs-buffer.Tpo -c -o emacs-buffer.obj `if test -f 'buffer.c'; then $(CYGPATH_W) 'buffer.c'; else $(CYGPATH_W) '$(srcdir)/buffer.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-buffer.Tpo $(DEPDIR)/emacs-buffer.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='buffer.c' object='emacs-buffer.obj' libtool=no @AMDEPBACKSLASH@
+me-buffer.obj: buffer.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-buffer.obj -MD -MP -MF $(DEPDIR)/me-buffer.Tpo -c -o me-buffer.obj `if test -f 'buffer.c'; then $(CYGPATH_W) 'buffer.c'; else $(CYGPATH_W) '$(srcdir)/buffer.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-buffer.Tpo $(DEPDIR)/me-buffer.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='buffer.c' object='me-buffer.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-buffer.obj `if test -f 'buffer.c'; then $(CYGPATH_W) 'buffer.c'; else $(CYGPATH_W) '$(srcdir)/buffer.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-buffer.obj `if test -f 'buffer.c'; then $(CYGPATH_W) 'buffer.c'; else $(CYGPATH_W) '$(srcdir)/buffer.c'; fi`
 
-emacs-display.o: display.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-display.o -MD -MP -MF $(DEPDIR)/emacs-display.Tpo -c -o emacs-display.o `test -f 'display.c' || echo '$(srcdir)/'`display.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-display.Tpo $(DEPDIR)/emacs-display.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='display.c' object='emacs-display.o' libtool=no @AMDEPBACKSLASH@
+me-display.o: display.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-display.o -MD -MP -MF $(DEPDIR)/me-display.Tpo -c -o me-display.o `test -f 'display.c' || echo '$(srcdir)/'`display.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-display.Tpo $(DEPDIR)/me-display.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='display.c' object='me-display.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-display.o `test -f 'display.c' || echo '$(srcdir)/'`display.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-display.o `test -f 'display.c' || echo '$(srcdir)/'`display.c
 
-emacs-display.obj: display.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-display.obj -MD -MP -MF $(DEPDIR)/emacs-display.Tpo -c -o emacs-display.obj `if test -f 'display.c'; then $(CYGPATH_W) 'display.c'; else $(CYGPATH_W) '$(srcdir)/display.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-display.Tpo $(DEPDIR)/emacs-display.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='display.c' object='emacs-display.obj' libtool=no @AMDEPBACKSLASH@
+me-display.obj: display.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-display.obj -MD -MP -MF $(DEPDIR)/me-display.Tpo -c -o me-display.obj `if test -f 'display.c'; then $(CYGPATH_W) 'display.c'; else $(CYGPATH_W) '$(srcdir)/display.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-display.Tpo $(DEPDIR)/me-display.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='display.c' object='me-display.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-display.obj `if test -f 'display.c'; then $(CYGPATH_W) 'display.c'; else $(CYGPATH_W) '$(srcdir)/display.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-display.obj `if test -f 'display.c'; then $(CYGPATH_W) 'display.c'; else $(CYGPATH_W) '$(srcdir)/display.c'; fi`
 
-emacs-file.o: file.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-file.o -MD -MP -MF $(DEPDIR)/emacs-file.Tpo -c -o emacs-file.o `test -f 'file.c' || echo '$(srcdir)/'`file.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-file.Tpo $(DEPDIR)/emacs-file.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='file.c' object='emacs-file.o' libtool=no @AMDEPBACKSLASH@
+me-file.o: file.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-file.o -MD -MP -MF $(DEPDIR)/me-file.Tpo -c -o me-file.o `test -f 'file.c' || echo '$(srcdir)/'`file.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-file.Tpo $(DEPDIR)/me-file.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='file.c' object='me-file.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-file.o `test -f 'file.c' || echo '$(srcdir)/'`file.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-file.o `test -f 'file.c' || echo '$(srcdir)/'`file.c
 
-emacs-file.obj: file.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-file.obj -MD -MP -MF $(DEPDIR)/emacs-file.Tpo -c -o emacs-file.obj `if test -f 'file.c'; then $(CYGPATH_W) 'file.c'; else $(CYGPATH_W) '$(srcdir)/file.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-file.Tpo $(DEPDIR)/emacs-file.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='file.c' object='emacs-file.obj' libtool=no @AMDEPBACKSLASH@
+me-file.obj: file.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-file.obj -MD -MP -MF $(DEPDIR)/me-file.Tpo -c -o me-file.obj `if test -f 'file.c'; then $(CYGPATH_W) 'file.c'; else $(CYGPATH_W) '$(srcdir)/file.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-file.Tpo $(DEPDIR)/me-file.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='file.c' object='me-file.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-file.obj `if test -f 'file.c'; then $(CYGPATH_W) 'file.c'; else $(CYGPATH_W) '$(srcdir)/file.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-file.obj `if test -f 'file.c'; then $(CYGPATH_W) 'file.c'; else $(CYGPATH_W) '$(srcdir)/file.c'; fi`
 
-emacs-fileio.o: fileio.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-fileio.o -MD -MP -MF $(DEPDIR)/emacs-fileio.Tpo -c -o emacs-fileio.o `test -f 'fileio.c' || echo '$(srcdir)/'`fileio.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-fileio.Tpo $(DEPDIR)/emacs-fileio.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='fileio.c' object='emacs-fileio.o' libtool=no @AMDEPBACKSLASH@
+me-fileio.o: fileio.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-fileio.o -MD -MP -MF $(DEPDIR)/me-fileio.Tpo -c -o me-fileio.o `test -f 'fileio.c' || echo '$(srcdir)/'`fileio.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-fileio.Tpo $(DEPDIR)/me-fileio.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='fileio.c' object='me-fileio.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-fileio.o `test -f 'fileio.c' || echo '$(srcdir)/'`fileio.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-fileio.o `test -f 'fileio.c' || echo '$(srcdir)/'`fileio.c
 
-emacs-fileio.obj: fileio.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-fileio.obj -MD -MP -MF $(DEPDIR)/emacs-fileio.Tpo -c -o emacs-fileio.obj `if test -f 'fileio.c'; then $(CYGPATH_W) 'fileio.c'; else $(CYGPATH_W) '$(srcdir)/fileio.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-fileio.Tpo $(DEPDIR)/emacs-fileio.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='fileio.c' object='emacs-fileio.obj' libtool=no @AMDEPBACKSLASH@
+me-fileio.obj: fileio.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-fileio.obj -MD -MP -MF $(DEPDIR)/me-fileio.Tpo -c -o me-fileio.obj `if test -f 'fileio.c'; then $(CYGPATH_W) 'fileio.c'; else $(CYGPATH_W) '$(srcdir)/fileio.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-fileio.Tpo $(DEPDIR)/me-fileio.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='fileio.c' object='me-fileio.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-fileio.obj `if test -f 'fileio.c'; then $(CYGPATH_W) 'fileio.c'; else $(CYGPATH_W) '$(srcdir)/fileio.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-fileio.obj `if test -f 'fileio.c'; then $(CYGPATH_W) 'fileio.c'; else $(CYGPATH_W) '$(srcdir)/fileio.c'; fi`
 
-emacs-hp150.o: hp150.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-hp150.o -MD -MP -MF $(DEPDIR)/emacs-hp150.Tpo -c -o emacs-hp150.o `test -f 'hp150.c' || echo '$(srcdir)/'`hp150.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-hp150.Tpo $(DEPDIR)/emacs-hp150.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='hp150.c' object='emacs-hp150.o' libtool=no @AMDEPBACKSLASH@
+me-hp150.o: hp150.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-hp150.o -MD -MP -MF $(DEPDIR)/me-hp150.Tpo -c -o me-hp150.o `test -f 'hp150.c' || echo '$(srcdir)/'`hp150.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-hp150.Tpo $(DEPDIR)/me-hp150.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='hp150.c' object='me-hp150.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-hp150.o `test -f 'hp150.c' || echo '$(srcdir)/'`hp150.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-hp150.o `test -f 'hp150.c' || echo '$(srcdir)/'`hp150.c
 
-emacs-hp150.obj: hp150.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-hp150.obj -MD -MP -MF $(DEPDIR)/emacs-hp150.Tpo -c -o emacs-hp150.obj `if test -f 'hp150.c'; then $(CYGPATH_W) 'hp150.c'; else $(CYGPATH_W) '$(srcdir)/hp150.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-hp150.Tpo $(DEPDIR)/emacs-hp150.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='hp150.c' object='emacs-hp150.obj' libtool=no @AMDEPBACKSLASH@
+me-hp150.obj: hp150.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-hp150.obj -MD -MP -MF $(DEPDIR)/me-hp150.Tpo -c -o me-hp150.obj `if test -f 'hp150.c'; then $(CYGPATH_W) 'hp150.c'; else $(CYGPATH_W) '$(srcdir)/hp150.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-hp150.Tpo $(DEPDIR)/me-hp150.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='hp150.c' object='me-hp150.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-hp150.obj `if test -f 'hp150.c'; then $(CYGPATH_W) 'hp150.c'; else $(CYGPATH_W) '$(srcdir)/hp150.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-hp150.obj `if test -f 'hp150.c'; then $(CYGPATH_W) 'hp150.c'; else $(CYGPATH_W) '$(srcdir)/hp150.c'; fi`
 
-emacs-line.o: line.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-line.o -MD -MP -MF $(DEPDIR)/emacs-line.Tpo -c -o emacs-line.o `test -f 'line.c' || echo '$(srcdir)/'`line.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-line.Tpo $(DEPDIR)/emacs-line.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='line.c' object='emacs-line.o' libtool=no @AMDEPBACKSLASH@
+me-line.o: line.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-line.o -MD -MP -MF $(DEPDIR)/me-line.Tpo -c -o me-line.o `test -f 'line.c' || echo '$(srcdir)/'`line.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-line.Tpo $(DEPDIR)/me-line.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='line.c' object='me-line.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-line.o `test -f 'line.c' || echo '$(srcdir)/'`line.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-line.o `test -f 'line.c' || echo '$(srcdir)/'`line.c
 
-emacs-line.obj: line.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-line.obj -MD -MP -MF $(DEPDIR)/emacs-line.Tpo -c -o emacs-line.obj `if test -f 'line.c'; then $(CYGPATH_W) 'line.c'; else $(CYGPATH_W) '$(srcdir)/line.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-line.Tpo $(DEPDIR)/emacs-line.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='line.c' object='emacs-line.obj' libtool=no @AMDEPBACKSLASH@
+me-line.obj: line.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-line.obj -MD -MP -MF $(DEPDIR)/me-line.Tpo -c -o me-line.obj `if test -f 'line.c'; then $(CYGPATH_W) 'line.c'; else $(CYGPATH_W) '$(srcdir)/line.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-line.Tpo $(DEPDIR)/me-line.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='line.c' object='me-line.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-line.obj `if test -f 'line.c'; then $(CYGPATH_W) 'line.c'; else $(CYGPATH_W) '$(srcdir)/line.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-line.obj `if test -f 'line.c'; then $(CYGPATH_W) 'line.c'; else $(CYGPATH_W) '$(srcdir)/line.c'; fi`
 
-emacs-lock.o: lock.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-lock.o -MD -MP -MF $(DEPDIR)/emacs-lock.Tpo -c -o emacs-lock.o `test -f 'lock.c' || echo '$(srcdir)/'`lock.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-lock.Tpo $(DEPDIR)/emacs-lock.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='lock.c' object='emacs-lock.o' libtool=no @AMDEPBACKSLASH@
+me-lock.o: lock.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-lock.o -MD -MP -MF $(DEPDIR)/me-lock.Tpo -c -o me-lock.o `test -f 'lock.c' || echo '$(srcdir)/'`lock.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-lock.Tpo $(DEPDIR)/me-lock.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='lock.c' object='me-lock.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-lock.o `test -f 'lock.c' || echo '$(srcdir)/'`lock.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-lock.o `test -f 'lock.c' || echo '$(srcdir)/'`lock.c
 
-emacs-lock.obj: lock.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-lock.obj -MD -MP -MF $(DEPDIR)/emacs-lock.Tpo -c -o emacs-lock.obj `if test -f 'lock.c'; then $(CYGPATH_W) 'lock.c'; else $(CYGPATH_W) '$(srcdir)/lock.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-lock.Tpo $(DEPDIR)/emacs-lock.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='lock.c' object='emacs-lock.obj' libtool=no @AMDEPBACKSLASH@
+me-lock.obj: lock.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-lock.obj -MD -MP -MF $(DEPDIR)/me-lock.Tpo -c -o me-lock.obj `if test -f 'lock.c'; then $(CYGPATH_W) 'lock.c'; else $(CYGPATH_W) '$(srcdir)/lock.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-lock.Tpo $(DEPDIR)/me-lock.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='lock.c' object='me-lock.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-lock.obj `if test -f 'lock.c'; then $(CYGPATH_W) 'lock.c'; else $(CYGPATH_W) '$(srcdir)/lock.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-lock.obj `if test -f 'lock.c'; then $(CYGPATH_W) 'lock.c'; else $(CYGPATH_W) '$(srcdir)/lock.c'; fi`
 
-emacs-main.o: main.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-main.o -MD -MP -MF $(DEPDIR)/emacs-main.Tpo -c -o emacs-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-main.Tpo $(DEPDIR)/emacs-main.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='main.c' object='emacs-main.o' libtool=no @AMDEPBACKSLASH@
+me-main.o: main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-main.o -MD -MP -MF $(DEPDIR)/me-main.Tpo -c -o me-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-main.Tpo $(DEPDIR)/me-main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='main.c' object='me-main.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
 
-emacs-main.obj: main.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-main.obj -MD -MP -MF $(DEPDIR)/emacs-main.Tpo -c -o emacs-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-main.Tpo $(DEPDIR)/emacs-main.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='main.c' object='emacs-main.obj' libtool=no @AMDEPBACKSLASH@
+me-main.obj: main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-main.obj -MD -MP -MF $(DEPDIR)/me-main.Tpo -c -o me-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-main.Tpo $(DEPDIR)/me-main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='main.c' object='me-main.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
 
-emacs-random.o: random.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-random.o -MD -MP -MF $(DEPDIR)/emacs-random.Tpo -c -o emacs-random.o `test -f 'random.c' || echo '$(srcdir)/'`random.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-random.Tpo $(DEPDIR)/emacs-random.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='random.c' object='emacs-random.o' libtool=no @AMDEPBACKSLASH@
+me-random.o: random.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-random.o -MD -MP -MF $(DEPDIR)/me-random.Tpo -c -o me-random.o `test -f 'random.c' || echo '$(srcdir)/'`random.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-random.Tpo $(DEPDIR)/me-random.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='random.c' object='me-random.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-random.o `test -f 'random.c' || echo '$(srcdir)/'`random.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-random.o `test -f 'random.c' || echo '$(srcdir)/'`random.c
 
-emacs-random.obj: random.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-random.obj -MD -MP -MF $(DEPDIR)/emacs-random.Tpo -c -o emacs-random.obj `if test -f 'random.c'; then $(CYGPATH_W) 'random.c'; else $(CYGPATH_W) '$(srcdir)/random.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-random.Tpo $(DEPDIR)/emacs-random.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='random.c' object='emacs-random.obj' libtool=no @AMDEPBACKSLASH@
+me-random.obj: random.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-random.obj -MD -MP -MF $(DEPDIR)/me-random.Tpo -c -o me-random.obj `if test -f 'random.c'; then $(CYGPATH_W) 'random.c'; else $(CYGPATH_W) '$(srcdir)/random.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-random.Tpo $(DEPDIR)/me-random.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='random.c' object='me-random.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-random.obj `if test -f 'random.c'; then $(CYGPATH_W) 'random.c'; else $(CYGPATH_W) '$(srcdir)/random.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-random.obj `if test -f 'random.c'; then $(CYGPATH_W) 'random.c'; else $(CYGPATH_W) '$(srcdir)/random.c'; fi`
 
-emacs-region.o: region.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-region.o -MD -MP -MF $(DEPDIR)/emacs-region.Tpo -c -o emacs-region.o `test -f 'region.c' || echo '$(srcdir)/'`region.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-region.Tpo $(DEPDIR)/emacs-region.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='region.c' object='emacs-region.o' libtool=no @AMDEPBACKSLASH@
+me-region.o: region.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-region.o -MD -MP -MF $(DEPDIR)/me-region.Tpo -c -o me-region.o `test -f 'region.c' || echo '$(srcdir)/'`region.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-region.Tpo $(DEPDIR)/me-region.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='region.c' object='me-region.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-region.o `test -f 'region.c' || echo '$(srcdir)/'`region.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-region.o `test -f 'region.c' || echo '$(srcdir)/'`region.c
 
-emacs-region.obj: region.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-region.obj -MD -MP -MF $(DEPDIR)/emacs-region.Tpo -c -o emacs-region.obj `if test -f 'region.c'; then $(CYGPATH_W) 'region.c'; else $(CYGPATH_W) '$(srcdir)/region.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-region.Tpo $(DEPDIR)/emacs-region.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='region.c' object='emacs-region.obj' libtool=no @AMDEPBACKSLASH@
+me-region.obj: region.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-region.obj -MD -MP -MF $(DEPDIR)/me-region.Tpo -c -o me-region.obj `if test -f 'region.c'; then $(CYGPATH_W) 'region.c'; else $(CYGPATH_W) '$(srcdir)/region.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-region.Tpo $(DEPDIR)/me-region.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='region.c' object='me-region.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-region.obj `if test -f 'region.c'; then $(CYGPATH_W) 'region.c'; else $(CYGPATH_W) '$(srcdir)/region.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-region.obj `if test -f 'region.c'; then $(CYGPATH_W) 'region.c'; else $(CYGPATH_W) '$(srcdir)/region.c'; fi`
 
-emacs-search.o: search.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-search.o -MD -MP -MF $(DEPDIR)/emacs-search.Tpo -c -o emacs-search.o `test -f 'search.c' || echo '$(srcdir)/'`search.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-search.Tpo $(DEPDIR)/emacs-search.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='search.c' object='emacs-search.o' libtool=no @AMDEPBACKSLASH@
+me-search.o: search.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-search.o -MD -MP -MF $(DEPDIR)/me-search.Tpo -c -o me-search.o `test -f 'search.c' || echo '$(srcdir)/'`search.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-search.Tpo $(DEPDIR)/me-search.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='search.c' object='me-search.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-search.o `test -f 'search.c' || echo '$(srcdir)/'`search.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-search.o `test -f 'search.c' || echo '$(srcdir)/'`search.c
 
-emacs-search.obj: search.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-search.obj -MD -MP -MF $(DEPDIR)/emacs-search.Tpo -c -o emacs-search.obj `if test -f 'search.c'; then $(CYGPATH_W) 'search.c'; else $(CYGPATH_W) '$(srcdir)/search.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-search.Tpo $(DEPDIR)/emacs-search.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='search.c' object='emacs-search.obj' libtool=no @AMDEPBACKSLASH@
+me-search.obj: search.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-search.obj -MD -MP -MF $(DEPDIR)/me-search.Tpo -c -o me-search.obj `if test -f 'search.c'; then $(CYGPATH_W) 'search.c'; else $(CYGPATH_W) '$(srcdir)/search.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-search.Tpo $(DEPDIR)/me-search.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='search.c' object='me-search.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-search.obj `if test -f 'search.c'; then $(CYGPATH_W) 'search.c'; else $(CYGPATH_W) '$(srcdir)/search.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-search.obj `if test -f 'search.c'; then $(CYGPATH_W) 'search.c'; else $(CYGPATH_W) '$(srcdir)/search.c'; fi`
 
-emacs-spawn.o: spawn.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-spawn.o -MD -MP -MF $(DEPDIR)/emacs-spawn.Tpo -c -o emacs-spawn.o `test -f 'spawn.c' || echo '$(srcdir)/'`spawn.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-spawn.Tpo $(DEPDIR)/emacs-spawn.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spawn.c' object='emacs-spawn.o' libtool=no @AMDEPBACKSLASH@
+me-spawn.o: spawn.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-spawn.o -MD -MP -MF $(DEPDIR)/me-spawn.Tpo -c -o me-spawn.o `test -f 'spawn.c' || echo '$(srcdir)/'`spawn.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-spawn.Tpo $(DEPDIR)/me-spawn.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spawn.c' object='me-spawn.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-spawn.o `test -f 'spawn.c' || echo '$(srcdir)/'`spawn.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-spawn.o `test -f 'spawn.c' || echo '$(srcdir)/'`spawn.c
 
-emacs-spawn.obj: spawn.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-spawn.obj -MD -MP -MF $(DEPDIR)/emacs-spawn.Tpo -c -o emacs-spawn.obj `if test -f 'spawn.c'; then $(CYGPATH_W) 'spawn.c'; else $(CYGPATH_W) '$(srcdir)/spawn.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-spawn.Tpo $(DEPDIR)/emacs-spawn.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spawn.c' object='emacs-spawn.obj' libtool=no @AMDEPBACKSLASH@
+me-spawn.obj: spawn.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-spawn.obj -MD -MP -MF $(DEPDIR)/me-spawn.Tpo -c -o me-spawn.obj `if test -f 'spawn.c'; then $(CYGPATH_W) 'spawn.c'; else $(CYGPATH_W) '$(srcdir)/spawn.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-spawn.Tpo $(DEPDIR)/me-spawn.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spawn.c' object='me-spawn.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-spawn.obj `if test -f 'spawn.c'; then $(CYGPATH_W) 'spawn.c'; else $(CYGPATH_W) '$(srcdir)/spawn.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-spawn.obj `if test -f 'spawn.c'; then $(CYGPATH_W) 'spawn.c'; else $(CYGPATH_W) '$(srcdir)/spawn.c'; fi`
 
-emacs-tcap.o: tcap.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-tcap.o -MD -MP -MF $(DEPDIR)/emacs-tcap.Tpo -c -o emacs-tcap.o `test -f 'tcap.c' || echo '$(srcdir)/'`tcap.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-tcap.Tpo $(DEPDIR)/emacs-tcap.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='tcap.c' object='emacs-tcap.o' libtool=no @AMDEPBACKSLASH@
+me-tcap.o: tcap.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-tcap.o -MD -MP -MF $(DEPDIR)/me-tcap.Tpo -c -o me-tcap.o `test -f 'tcap.c' || echo '$(srcdir)/'`tcap.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-tcap.Tpo $(DEPDIR)/me-tcap.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='tcap.c' object='me-tcap.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-tcap.o `test -f 'tcap.c' || echo '$(srcdir)/'`tcap.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-tcap.o `test -f 'tcap.c' || echo '$(srcdir)/'`tcap.c
 
-emacs-tcap.obj: tcap.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-tcap.obj -MD -MP -MF $(DEPDIR)/emacs-tcap.Tpo -c -o emacs-tcap.obj `if test -f 'tcap.c'; then $(CYGPATH_W) 'tcap.c'; else $(CYGPATH_W) '$(srcdir)/tcap.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-tcap.Tpo $(DEPDIR)/emacs-tcap.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='tcap.c' object='emacs-tcap.obj' libtool=no @AMDEPBACKSLASH@
+me-tcap.obj: tcap.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-tcap.obj -MD -MP -MF $(DEPDIR)/me-tcap.Tpo -c -o me-tcap.obj `if test -f 'tcap.c'; then $(CYGPATH_W) 'tcap.c'; else $(CYGPATH_W) '$(srcdir)/tcap.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-tcap.Tpo $(DEPDIR)/me-tcap.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='tcap.c' object='me-tcap.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-tcap.obj `if test -f 'tcap.c'; then $(CYGPATH_W) 'tcap.c'; else $(CYGPATH_W) '$(srcdir)/tcap.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-tcap.obj `if test -f 'tcap.c'; then $(CYGPATH_W) 'tcap.c'; else $(CYGPATH_W) '$(srcdir)/tcap.c'; fi`
 
-emacs-termio.o: termio.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-termio.o -MD -MP -MF $(DEPDIR)/emacs-termio.Tpo -c -o emacs-termio.o `test -f 'termio.c' || echo '$(srcdir)/'`termio.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-termio.Tpo $(DEPDIR)/emacs-termio.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='termio.c' object='emacs-termio.o' libtool=no @AMDEPBACKSLASH@
+me-termio.o: termio.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-termio.o -MD -MP -MF $(DEPDIR)/me-termio.Tpo -c -o me-termio.o `test -f 'termio.c' || echo '$(srcdir)/'`termio.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-termio.Tpo $(DEPDIR)/me-termio.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='termio.c' object='me-termio.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-termio.o `test -f 'termio.c' || echo '$(srcdir)/'`termio.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-termio.o `test -f 'termio.c' || echo '$(srcdir)/'`termio.c
 
-emacs-termio.obj: termio.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-termio.obj -MD -MP -MF $(DEPDIR)/emacs-termio.Tpo -c -o emacs-termio.obj `if test -f 'termio.c'; then $(CYGPATH_W) 'termio.c'; else $(CYGPATH_W) '$(srcdir)/termio.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-termio.Tpo $(DEPDIR)/emacs-termio.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='termio.c' object='emacs-termio.obj' libtool=no @AMDEPBACKSLASH@
+me-termio.obj: termio.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-termio.obj -MD -MP -MF $(DEPDIR)/me-termio.Tpo -c -o me-termio.obj `if test -f 'termio.c'; then $(CYGPATH_W) 'termio.c'; else $(CYGPATH_W) '$(srcdir)/termio.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-termio.Tpo $(DEPDIR)/me-termio.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='termio.c' object='me-termio.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-termio.obj `if test -f 'termio.c'; then $(CYGPATH_W) 'termio.c'; else $(CYGPATH_W) '$(srcdir)/termio.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-termio.obj `if test -f 'termio.c'; then $(CYGPATH_W) 'termio.c'; else $(CYGPATH_W) '$(srcdir)/termio.c'; fi`
 
-emacs-vt52.o: vt52.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-vt52.o -MD -MP -MF $(DEPDIR)/emacs-vt52.Tpo -c -o emacs-vt52.o `test -f 'vt52.c' || echo '$(srcdir)/'`vt52.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-vt52.Tpo $(DEPDIR)/emacs-vt52.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='vt52.c' object='emacs-vt52.o' libtool=no @AMDEPBACKSLASH@
+me-vt52.o: vt52.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-vt52.o -MD -MP -MF $(DEPDIR)/me-vt52.Tpo -c -o me-vt52.o `test -f 'vt52.c' || echo '$(srcdir)/'`vt52.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-vt52.Tpo $(DEPDIR)/me-vt52.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='vt52.c' object='me-vt52.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-vt52.o `test -f 'vt52.c' || echo '$(srcdir)/'`vt52.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-vt52.o `test -f 'vt52.c' || echo '$(srcdir)/'`vt52.c
 
-emacs-vt52.obj: vt52.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-vt52.obj -MD -MP -MF $(DEPDIR)/emacs-vt52.Tpo -c -o emacs-vt52.obj `if test -f 'vt52.c'; then $(CYGPATH_W) 'vt52.c'; else $(CYGPATH_W) '$(srcdir)/vt52.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-vt52.Tpo $(DEPDIR)/emacs-vt52.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='vt52.c' object='emacs-vt52.obj' libtool=no @AMDEPBACKSLASH@
+me-vt52.obj: vt52.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-vt52.obj -MD -MP -MF $(DEPDIR)/me-vt52.Tpo -c -o me-vt52.obj `if test -f 'vt52.c'; then $(CYGPATH_W) 'vt52.c'; else $(CYGPATH_W) '$(srcdir)/vt52.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-vt52.Tpo $(DEPDIR)/me-vt52.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='vt52.c' object='me-vt52.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-vt52.obj `if test -f 'vt52.c'; then $(CYGPATH_W) 'vt52.c'; else $(CYGPATH_W) '$(srcdir)/vt52.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-vt52.obj `if test -f 'vt52.c'; then $(CYGPATH_W) 'vt52.c'; else $(CYGPATH_W) '$(srcdir)/vt52.c'; fi`
 
-emacs-window.o: window.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-window.o -MD -MP -MF $(DEPDIR)/emacs-window.Tpo -c -o emacs-window.o `test -f 'window.c' || echo '$(srcdir)/'`window.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-window.Tpo $(DEPDIR)/emacs-window.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='window.c' object='emacs-window.o' libtool=no @AMDEPBACKSLASH@
+me-window.o: window.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-window.o -MD -MP -MF $(DEPDIR)/me-window.Tpo -c -o me-window.o `test -f 'window.c' || echo '$(srcdir)/'`window.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-window.Tpo $(DEPDIR)/me-window.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='window.c' object='me-window.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-window.o `test -f 'window.c' || echo '$(srcdir)/'`window.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-window.o `test -f 'window.c' || echo '$(srcdir)/'`window.c
 
-emacs-window.obj: window.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-window.obj -MD -MP -MF $(DEPDIR)/emacs-window.Tpo -c -o emacs-window.obj `if test -f 'window.c'; then $(CYGPATH_W) 'window.c'; else $(CYGPATH_W) '$(srcdir)/window.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-window.Tpo $(DEPDIR)/emacs-window.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='window.c' object='emacs-window.obj' libtool=no @AMDEPBACKSLASH@
+me-window.obj: window.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-window.obj -MD -MP -MF $(DEPDIR)/me-window.Tpo -c -o me-window.obj `if test -f 'window.c'; then $(CYGPATH_W) 'window.c'; else $(CYGPATH_W) '$(srcdir)/window.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-window.Tpo $(DEPDIR)/me-window.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='window.c' object='me-window.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-window.obj `if test -f 'window.c'; then $(CYGPATH_W) 'window.c'; else $(CYGPATH_W) '$(srcdir)/window.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-window.obj `if test -f 'window.c'; then $(CYGPATH_W) 'window.c'; else $(CYGPATH_W) '$(srcdir)/window.c'; fi`
 
-emacs-word.o: word.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-word.o -MD -MP -MF $(DEPDIR)/emacs-word.Tpo -c -o emacs-word.o `test -f 'word.c' || echo '$(srcdir)/'`word.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-word.Tpo $(DEPDIR)/emacs-word.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='word.c' object='emacs-word.o' libtool=no @AMDEPBACKSLASH@
+me-word.o: word.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-word.o -MD -MP -MF $(DEPDIR)/me-word.Tpo -c -o me-word.o `test -f 'word.c' || echo '$(srcdir)/'`word.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-word.Tpo $(DEPDIR)/me-word.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='word.c' object='me-word.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-word.o `test -f 'word.c' || echo '$(srcdir)/'`word.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-word.o `test -f 'word.c' || echo '$(srcdir)/'`word.c
 
-emacs-word.obj: word.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -MT emacs-word.obj -MD -MP -MF $(DEPDIR)/emacs-word.Tpo -c -o emacs-word.obj `if test -f 'word.c'; then $(CYGPATH_W) 'word.c'; else $(CYGPATH_W) '$(srcdir)/word.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/emacs-word.Tpo $(DEPDIR)/emacs-word.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='word.c' object='emacs-word.obj' libtool=no @AMDEPBACKSLASH@
+me-word.obj: word.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -MT me-word.obj -MD -MP -MF $(DEPDIR)/me-word.Tpo -c -o me-word.obj `if test -f 'word.c'; then $(CYGPATH_W) 'word.c'; else $(CYGPATH_W) '$(srcdir)/word.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/me-word.Tpo $(DEPDIR)/me-word.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='word.c' object='me-word.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(emacs_CFLAGS) $(CFLAGS) -c -o emacs-word.obj `if test -f 'word.c'; then $(CYGPATH_W) 'word.c'; else $(CYGPATH_W) '$(srcdir)/word.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(me_CFLAGS) $(CFLAGS) -c -o me-word.obj `if test -f 'word.c'; then $(CYGPATH_W) 'word.c'; else $(CYGPATH_W) '$(srcdir)/word.c'; fi`
 install-dist_pkgdataDATA: $(dist_pkgdata_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(dist_pkgdata_DATA)'; test -n "$(pkgdatadir)" || list=; \
@@ -873,26 +869,26 @@ clean: clean-am
 clean-am: clean-binPROGRAMS clean-generic mostlyclean-am
 
 distclean: distclean-am
-		-rm -f ./$(DEPDIR)/emacs-ansi.Po
-	-rm -f ./$(DEPDIR)/emacs-basic.Po
-	-rm -f ./$(DEPDIR)/emacs-bind.Po
-	-rm -f ./$(DEPDIR)/emacs-buffer.Po
-	-rm -f ./$(DEPDIR)/emacs-display.Po
-	-rm -f ./$(DEPDIR)/emacs-file.Po
-	-rm -f ./$(DEPDIR)/emacs-fileio.Po
-	-rm -f ./$(DEPDIR)/emacs-hp150.Po
-	-rm -f ./$(DEPDIR)/emacs-line.Po
-	-rm -f ./$(DEPDIR)/emacs-lock.Po
-	-rm -f ./$(DEPDIR)/emacs-main.Po
-	-rm -f ./$(DEPDIR)/emacs-random.Po
-	-rm -f ./$(DEPDIR)/emacs-region.Po
-	-rm -f ./$(DEPDIR)/emacs-search.Po
-	-rm -f ./$(DEPDIR)/emacs-spawn.Po
-	-rm -f ./$(DEPDIR)/emacs-tcap.Po
-	-rm -f ./$(DEPDIR)/emacs-termio.Po
-	-rm -f ./$(DEPDIR)/emacs-vt52.Po
-	-rm -f ./$(DEPDIR)/emacs-window.Po
-	-rm -f ./$(DEPDIR)/emacs-word.Po
+		-rm -f ./$(DEPDIR)/me-ansi.Po
+	-rm -f ./$(DEPDIR)/me-basic.Po
+	-rm -f ./$(DEPDIR)/me-bind.Po
+	-rm -f ./$(DEPDIR)/me-buffer.Po
+	-rm -f ./$(DEPDIR)/me-display.Po
+	-rm -f ./$(DEPDIR)/me-file.Po
+	-rm -f ./$(DEPDIR)/me-fileio.Po
+	-rm -f ./$(DEPDIR)/me-hp150.Po
+	-rm -f ./$(DEPDIR)/me-line.Po
+	-rm -f ./$(DEPDIR)/me-lock.Po
+	-rm -f ./$(DEPDIR)/me-main.Po
+	-rm -f ./$(DEPDIR)/me-random.Po
+	-rm -f ./$(DEPDIR)/me-region.Po
+	-rm -f ./$(DEPDIR)/me-search.Po
+	-rm -f ./$(DEPDIR)/me-spawn.Po
+	-rm -f ./$(DEPDIR)/me-tcap.Po
+	-rm -f ./$(DEPDIR)/me-termio.Po
+	-rm -f ./$(DEPDIR)/me-vt52.Po
+	-rm -f ./$(DEPDIR)/me-window.Po
+	-rm -f ./$(DEPDIR)/me-word.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -938,26 +934,26 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-		-rm -f ./$(DEPDIR)/emacs-ansi.Po
-	-rm -f ./$(DEPDIR)/emacs-basic.Po
-	-rm -f ./$(DEPDIR)/emacs-bind.Po
-	-rm -f ./$(DEPDIR)/emacs-buffer.Po
-	-rm -f ./$(DEPDIR)/emacs-display.Po
-	-rm -f ./$(DEPDIR)/emacs-file.Po
-	-rm -f ./$(DEPDIR)/emacs-fileio.Po
-	-rm -f ./$(DEPDIR)/emacs-hp150.Po
-	-rm -f ./$(DEPDIR)/emacs-line.Po
-	-rm -f ./$(DEPDIR)/emacs-lock.Po
-	-rm -f ./$(DEPDIR)/emacs-main.Po
-	-rm -f ./$(DEPDIR)/emacs-random.Po
-	-rm -f ./$(DEPDIR)/emacs-region.Po
-	-rm -f ./$(DEPDIR)/emacs-search.Po
-	-rm -f ./$(DEPDIR)/emacs-spawn.Po
-	-rm -f ./$(DEPDIR)/emacs-tcap.Po
-	-rm -f ./$(DEPDIR)/emacs-termio.Po
-	-rm -f ./$(DEPDIR)/emacs-vt52.Po
-	-rm -f ./$(DEPDIR)/emacs-window.Po
-	-rm -f ./$(DEPDIR)/emacs-word.Po
+		-rm -f ./$(DEPDIR)/me-ansi.Po
+	-rm -f ./$(DEPDIR)/me-basic.Po
+	-rm -f ./$(DEPDIR)/me-bind.Po
+	-rm -f ./$(DEPDIR)/me-buffer.Po
+	-rm -f ./$(DEPDIR)/me-display.Po
+	-rm -f ./$(DEPDIR)/me-file.Po
+	-rm -f ./$(DEPDIR)/me-fileio.Po
+	-rm -f ./$(DEPDIR)/me-hp150.Po
+	-rm -f ./$(DEPDIR)/me-line.Po
+	-rm -f ./$(DEPDIR)/me-lock.Po
+	-rm -f ./$(DEPDIR)/me-main.Po
+	-rm -f ./$(DEPDIR)/me-random.Po
+	-rm -f ./$(DEPDIR)/me-region.Po
+	-rm -f ./$(DEPDIR)/me-search.Po
+	-rm -f ./$(DEPDIR)/me-spawn.Po
+	-rm -f ./$(DEPDIR)/me-tcap.Po
+	-rm -f ./$(DEPDIR)/me-termio.Po
+	-rm -f ./$(DEPDIR)/me-vt52.Po
+	-rm -f ./$(DEPDIR)/me-window.Po
+	-rm -f ./$(DEPDIR)/me-word.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

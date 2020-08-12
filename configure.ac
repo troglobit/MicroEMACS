@@ -1,4 +1,4 @@
-AC_INIT([MicroEMACS], [3.6.1-beta1],, [MicroEMACS], [https://github.com/troglobit/MicroEMACS/])
+AC_INIT([MicroEMACS], [3.6.1-beta1],, [me], [https://github.com/troglobit/MicroEMACS/])
 AC_CONFIG_AUX_DIR(aux)
 AM_INIT_AUTOMAKE([1.11 foreign])
 AM_SILENT_RULES([yes])
