@@ -158,4 +158,4 @@ hello()
 {
 }
 
-#endif TERMCAP
+#endif /* TERMCAP */
