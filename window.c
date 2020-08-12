@@ -207,7 +207,6 @@ splitwind(f, n)
         register int    ntrd;
         register WINDOW *wp1;
         register WINDOW *wp2;
-	char *malloc();
 
         if (curwp->w_ntrows < 3) {
                 mlwrite("Cannot split a %d line window", curwp->w_ntrows);

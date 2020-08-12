@@ -369,7 +369,6 @@ char    bname[];
 {
         register BUFFER *bp;
         register WINDOW *wp;
-	char *malloc();
 
         bp = bfind(bname, TRUE, 0);             /* First buffer         */
         blistp = bfind("[List]", TRUE, BFTEMP); /* Buffer list buffer   */

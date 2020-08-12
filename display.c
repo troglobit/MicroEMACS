@@ -43,7 +43,6 @@ vtinit()
 {
     register int i;
     register VIDEO *vp;
-    char *malloc();
 
     (*term.t_open)();
     (*term.t_rev)(FALSE);
