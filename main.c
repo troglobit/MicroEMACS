@@ -198,8 +198,8 @@ char    *argv[];
 
 	/* initialize the editor and process the startup file */
         strcpy(bname, "main");	/* default buffer name */
-        edinit(bname);		/* Buffers, windows.    */
         vtinit();		/* Displays.            */
+        edinit(bname);		/* Buffers, windows.    */
 	startup();		/* execute .emacsrc if there */
 	viewflag = FALSE;
 	ffile = TRUE;		/* no file to edit yet */

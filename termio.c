@@ -79,6 +79,7 @@ char tobuf[TBUFSIZ];		/* terminal output buffer */
 #if linux
 #include	<termios.h>
 #include	<unistd.h>
+#include	<poll.h>
 struct	termios	 ostate;		 /* saved tty state */
 struct	termios	 nstate;		 /* values for editor mode */
 #endif
@@ -162,11 +163,25 @@ ttopen()
 #endif
 
 #if	linux
+	/* Save pos+attr, disable margins, set cursor far away, query pos */
+	const char query[] = "\e7" "\e[r" "\e[999;999H" "\e[6n";
+	struct pollfd fd = { 1, POLLIN, 0 };
+	int row, col;
+
 	/* Adjust output channel */
 	tcgetattr(1, &ostate);			/* save old state */
-	tcgetattr(1, &nstate);			/* get base of new state */
+	nstate = ostate;			/* get base of new state */
 	cfmakeraw(&nstate);
 	tcsetattr(1, TCSADRAIN, &nstate);	/* set mode */
+
+	/* Query size of terminal by first trying to position cursor */
+	if (write(1, query, sizeof(query)) != -1 && poll(&fd, 1, 300) > 0) {
+		/* Terminal responds with \e[row;posR */
+		if (scanf("\e[%d;%dR", &row, &col) == 2) {
+			term.t_nrow = row;
+			term.t_ncol = col;
+		}
+	}
 #endif
 }
 
