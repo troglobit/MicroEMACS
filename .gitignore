@@ -1,8 +1,10 @@
 *~
-*.o
 .gdb_history
-emacs
 GPATH
 GRTAGS
 GTAGS
 ID
+autom4te.cache/
+config.log
+config.status
+Makefile
