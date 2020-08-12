@@ -1,4 +1,4 @@
-CFLAGS=		-O2 -g -Dlinux
+CFLAGS=		-O2 -g -Dlinux -Wno-implicit-function-declaration -Wno-implicit-int
 
 OFILES=		ansi.o basic.o bind.o buffer.o display.o file.o \
 		fileio.o hp150.o line.o lock.o main.o random.o region.o \
