@@ -99,7 +99,7 @@ backsearch(f, n)
 		return(s);
 
 	/* and go search for it */
-	bsearch(f,n);
+	buffer_search(f,n);
 }
 
 backhunt(f, n)	/* hunt backward for the last search string entered */
@@ -118,10 +118,10 @@ backhunt(f, n)	/* hunt backward for the last search string entered */
 	}
 
 	/* and go search for it */
-	bsearch(f,n);
+	buffer_search(f,n);
 }
 
-bsearch(f, n)
+buffer_search(f, n)
 
 {
 	register LINE *clp;
