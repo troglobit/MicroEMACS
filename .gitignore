@@ -2,3 +2,7 @@
 *.o
 .gdb_history
 emacs
+GPATH
+GRTAGS
+GTAGS
+ID
