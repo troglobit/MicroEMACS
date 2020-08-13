@@ -1,4 +1,5 @@
 bin_PROGRAMS  = me
+AM_CPPFLAGS   = -DSYS_PATH=\"$(pkgdatadir)\"
 
 me_CFLAGS     = -Wno-implicit-function-declaration -Wno-implicit-int
 me_SOURCES    = ansi.c basic.c bind.c buffer.c display.c file.c fileio.c \

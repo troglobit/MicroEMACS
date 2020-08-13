@@ -1,5 +1,6 @@
-SUBDIRS        = src
-dist_doc_DATA  = README.md UNLICENSE ChangeLog emacs.rc
+SUBDIRS           = src
+dist_doc_DATA     = README.md UNLICENSE ChangeLog
+dist_pkgdata_DATA = emacs.rc
 
 ## Check if tagged in git
 release-hook:

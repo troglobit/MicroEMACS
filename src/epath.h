@@ -40,6 +40,14 @@ char *pathname[] = {
 	"sys$sysdevice:[vmstools]"
 #endif
 
+#if defined(BSD) || defined(linux)
+	".emacsrc",
+	"emacs.hlp",
+	SYS_PATH "/",
+	"/usr/local/",
+	"/usr/lib/",
+	""
+#endif
 };
 
 #define	NPNAMES	(sizeof(pathname)/sizeof(char *))
