@@ -5,7 +5,7 @@ AM_SILENT_RULES([yes])
 
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADER([src/config.h])
-AC_CONFIG_FILES([Makefile src/Makefile])
+AC_CONFIG_FILES([Makefile doc/Makefile src/Makefile])
 
 AC_PROG_CC
 AC_PROG_INSTALL

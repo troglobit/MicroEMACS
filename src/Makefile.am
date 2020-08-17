@@ -6,5 +6,3 @@ me_SOURCES    = ansi.c basic.c bind.c buffer.c display.c file.c fileio.c \
 		hp150.c line.c lock.c main.c random.c region.c search.c  \
 		spawn.c tcap.c termio.c vt52.c window.c word.c 		 \
 		estruct.h edef.h efunc.h epath.h
-
-dist_pkgdata_DATA = emacs.hlp
