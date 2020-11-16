@@ -181,7 +181,7 @@ int	lockfl;		/* check for file locks? */
 	if (strlen(fname) > 1) {		/* check if a 'C' file	*/
 		sptr = fname + strlen(fname) - 2;
 		if (*sptr == '.' &&
-		   *(sptr + 1) == 'c' || *(sptr + 1) == 'h')
+		    (*(sptr + 1) == 'c' || *(sptr + 1) == 'h'))
 			bp->b_mode |= MDCMOD;
 	}
         strcpy(bp->b_fname, fname);
