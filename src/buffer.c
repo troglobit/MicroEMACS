@@ -36,7 +36,7 @@ nextbuffer(f, n)	/* switch to the next buffer in the buffer list */
 
 	bp = curbp->b_bufp;
 	/* cycle through the buffers to find an eligable one */
-	while (bp == NULL | bp->b_flag & BFTEMP) {
+	while (bp == NULL || (bp->b_flag & BFTEMP)) {
 		if (bp == NULL)
 			bp = bheadp;
 		else
