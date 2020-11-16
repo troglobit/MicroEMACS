@@ -768,7 +768,7 @@ startup()
 	register int i;		/* index into help file names */
 	char fname[NSTRING];	/* buffer to construct file name in */
 
-#if	(MSDOS & LATTICE) | V7 | BSD | linux
+#if	(MSDOS & LATTICE) || V7 || BSD || linux || macos
 	char *homedir;		/* pointer to your home directory */
 	char *getenv();
 	

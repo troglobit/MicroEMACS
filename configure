@@ -4040,12 +4040,17 @@ case $host_os in *\ *) host_os=`echo "$host_os" | sed 's/ /-/g'`;; esac
 
 
 case $host in
+  *-apple*)
+
+$as_echo "#define macos 1" >>confdefs.h
+
+    ;;
   *-linux*)
 
 $as_echo "#define linux 1" >>confdefs.h
 
     ;;
-  *-freebsd* | *-openbsd* | *-netbsd* | *-dragonfly* | *-solaris* | *-apple*)
+  *-freebsd* | *-openbsd* | *-netbsd* | *-dragonfly* | *-solaris*)
 
 $as_echo "#define BSD 1" >>confdefs.h
 

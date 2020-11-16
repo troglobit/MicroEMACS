@@ -76,7 +76,7 @@ char tobuf[TBUFSIZ];		/* terminal output buffer */
 #endif
 #endif
 
-#if linux
+#if linux || macos
 #include	<termios.h>
 #include	<unistd.h>
 #include	<poll.h>
@@ -162,7 +162,7 @@ ttopen()
 #endif
 #endif
 
-#if	linux
+#if	linux || macos
 	/* Save pos+attr, disable margins, set cursor far away, query pos */
 	const char query[] = "\e7" "\e[r" "\e[999;999H" "\e[6n";
 	struct pollfd fd = { 1, POLLIN, 0 };
@@ -224,7 +224,7 @@ ttclose()
 	ioctl(0, TIOCSETC, &otchars);	/* Place old character into K */
 #endif
 
-#if	linux
+#if	linux || macos
 	tcsetattr(1, TCSADRAIN, &ostate);	/* return to original mode */
 #endif
 }
@@ -271,7 +271,7 @@ ttputc(c)
         Put_Char(c);                    /* fast video */
 #endif
 
-#if     V7 || linux
+#if     V7 || linux || macos
         fputc(c, stdout);
 #endif
 }
@@ -312,7 +312,7 @@ ttflush()
 #endif
 #if     MSDOS
 #endif
-#if     V7 || linux
+#if     V7 || linux || macos
         fflush(stdout);
 #endif
 }
@@ -425,7 +425,7 @@ ttgetc()
 	return(c);
 #endif
 
-#if     V7 || linux
+#if     V7 || linux || macos
         return(127 & fgetc(stdin));
 #endif
 }

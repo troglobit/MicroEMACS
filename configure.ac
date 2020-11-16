@@ -14,10 +14,13 @@ AC_HEADER_STDC
 
 AC_CANONICAL_HOST
 case $host in
+  *-apple*)
+    AC_DEFINE([macos], [1], [macOS system])
+    ;;
   *-linux*)
     AC_DEFINE([linux], [1], [Linux system with GLIBC/uClibc/musl])
     ;;
-  *-freebsd* | *-openbsd* | *-netbsd* | *-dragonfly* | *-solaris* | *-apple*)
+  *-freebsd* | *-openbsd* | *-netbsd* | *-dragonfly* | *-solaris*)
     AC_DEFINE([BSD], [1], [BSD compatible system])
     ;;
   *)
