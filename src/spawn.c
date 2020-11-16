@@ -99,7 +99,7 @@ spawncli(f, n)
 #endif
 }
 
-#if	V7 & BSD
+#if	V7 || BSD
 
 bktoshell()		/* suspend MicroEMACS and wait to wake up */
 {

@@ -59,7 +59,7 @@ int nxtchar = -1;	/* character held from type ahead    */
 #include "rainbow.h"
 #endif
 
-#if V7
+#if V7 || BSD
 #undef	CTRL
 #include        <sgtty.h>        /* for stty/gtty functions */
 #include	<signal.h>
@@ -145,7 +145,7 @@ ttopen()
 	intdos(&rg, &rg);	/* go for it! */
 #endif
 
-#if     V7 | BSD
+#if     V7 || BSD
         gtty(0, &ostate);                       /* save old state */
         gtty(0, &nstate);                       /* get base of new state */
         nstate.sg_flags |= RAW;
