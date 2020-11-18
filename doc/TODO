@@ -1,0 +1,3 @@
+- Arrow keys don't work on Linux or macOS
+- Status buffer overwrites mode line, does not refresh until Ctrl-L
+
